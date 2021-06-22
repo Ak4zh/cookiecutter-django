@@ -15,3 +15,12 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {%- endif %}
+
+CAPROVER_NAMESPACE={{ cookiecutter.project_slug }}
+CAPROVER_SSH_KEY=
+CAPROVER_DASHBOARD_URL=
+CAPROVER_DASHBOARD_PASSWORD=
+
+DJANGO_PROJECT_NAME={{ cookiecutter.project_name }}
+DJANGO_AUTHOR_NAME={{ cookiecutter.author_name }}
+DJANGO_META_KEYWORDS={{ cookiecutter.meta_keywords }}

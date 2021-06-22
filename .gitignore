@@ -215,3 +215,5 @@ tags
 .idea/
 
 .pytest_cache/
+
+!templates/*/lib/*

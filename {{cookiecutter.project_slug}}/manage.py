@@ -3,6 +3,10 @@ import os
 import sys
 from pathlib import Path
 
+import caprover_vars
+
+caprover_vars.setup()
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 

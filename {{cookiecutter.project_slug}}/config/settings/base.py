@@ -66,6 +66,14 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+
+{%- if cookiecutter.theme == 'adminlte' %}
+    # General use templates & template tags (should appear first)
+    'adminlte3',
+    # Optional: Django admin theme (must be before django.contrib.admin)
+    'adminlte3_theme',
+{%- endif %}
+
     "django.contrib.admin",
     "django.forms",
 ]
@@ -85,6 +93,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
+    "{{ cookiecutter.project_slug }}.core.apps.CoreConfig",
     "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]
@@ -331,5 +340,23 @@ REST_FRAMEWORK = {
 CORS_URLS_REGEX = r"^/api/.*$"
 
 {%- endif %}
+
+
+PROJECT_NAME = env("DJANGO_PROJECT_NAME")
+AUTHOR_NAME = env("DJANGO_AUTHOR_NAME")
+META_KEYWORDS = env.list("DJANGO_META_KEYWORDS", default=PROJECT_NAME.split(' '))
+
+SIDEBAR_LINKS = {
+    "MAIN NAVIGATION": {
+        "HOME": {"icon": 'fa-tachometer-alt', 'view_name': 'home'},
+        "HOME NESTED": {
+            "icon": 'fa-tachometer-alt',
+            'links': {
+                'HOME': {"icon": 'fa-tachometer-alt', 'view_name': 'home'}
+            }
+        },
+
+    }
+}
 # Your stuff...
 # ------------------------------------------------------------------------------

@@ -6,6 +6,10 @@ DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
 DJANGO_ADMIN_URL=!!!SET DJANGO_ADMIN_URL!!!
 DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }}
 
+DJANGO_PROJECT_NAME={{ cookiecutter.project_name }}
+DJANGO_AUTHOR_NAME={{ cookiecutter.author_name }}
+DJANGO_META_KEYWORDS={{ cookiecutter.meta_keywords }}
+
 # Security
 # ------------------------------------------------------------------------------
 # TIP: better off using DNS, however, redirect is OK too
@@ -69,3 +73,10 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}
+
+USE_DOCKER=true
+
+CAPROVER_NAMESPACE={{ cookiecutter.project_slug }}
+CAPROVER_SSH_KEY=
+CAPROVER_DASHBOARD_URL=
+CAPROVER_DASHBOARD_PASSWORD=

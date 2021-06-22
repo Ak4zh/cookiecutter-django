@@ -333,3 +333,5 @@ MailHog
 {% if cookiecutter.use_docker == 'y' %}
 .ipython/
 {%- endif %}
+
+!templates/*/lib/*
