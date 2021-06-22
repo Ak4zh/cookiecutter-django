@@ -49,7 +49,8 @@ class Command(BaseCommand):
             )
 
         apps_to_deploy = {
-             { % if cookiecutter.use_celery == 'y' - %}
+
+             {%- if cookiecutter.use_celery == 'y' %}
             'celery-worker': {
                 'captain_definition_path': './celery-worker-captain-definition',
                 'environment_variables': Command.ENV_VARS,
@@ -70,7 +71,7 @@ class Command(BaseCommand):
                 # 'force_ssl': True,
                 'container_http_port': 5555,
             },
-            { % - endif %}
+            {%- endif %}
 
             'web': {
                 'captain_definition_path': './captain-definition',
@@ -82,7 +83,7 @@ class Command(BaseCommand):
                 # 'force_ssl': True,
                 'container_http_port': 5000
             },
-            { % if cookiecutter.cloud_provider == 'AWS' %}
+            {%- if cookiecutter.cloud_provider == 'AWS' %}
             'postgresql-backup-s3': {
                 'image_name': 'itbm/postgresql-backup-s3:1.0.8',
                 'expose_as_web_app': False,
@@ -100,7 +101,7 @@ class Command(BaseCommand):
                     "DELETE_OLDER_THAN": "7 days ago",
                 }
             }
-            { % endif - %}
+            {%- endif %}
         }
         for app, app_data in apps_to_deploy.items():
             cap.create_and_update_app(
