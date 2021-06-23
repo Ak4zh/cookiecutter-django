@@ -32,10 +32,10 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             {% block nav_links_outer %}
-              {% for heading, items in SIDEBAR_LINKS.items %}
+              {% for heading, children in SIDEBAR_LINKS.items %}
                 <li class="nav-header">{% block nav_heading %}{{ heading }}{% endblock %}</li>
                 {% block nav_links %}
-                  {% for sub_heading, item_data in item.items %}
+                  {% for sub_heading, item_data in children.items %}
                     {% if item_data.links %}
                       <li class="nav-item has-tree-view ">
                         <a href="#" class="nav-link">
