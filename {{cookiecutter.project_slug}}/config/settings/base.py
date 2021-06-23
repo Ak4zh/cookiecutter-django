@@ -82,7 +82,10 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-{%- if cookiecutter.use_celery == 'y' %}
+    'stronghold',
+    'easy_select2',
+
+    {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
 {%- if cookiecutter.use_drf == "y" %}
@@ -157,6 +160,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'stronghold.middleware.LoginRequiredMiddleware',
+
 ]
 
 # STATIC
@@ -357,5 +362,20 @@ SIDEBAR_LINKS = {
 
     }
 }
+
+STRONGHOLD_DEFAULTS = True
+
+STRONGHOLD_PUBLIC_URLS = [
+    r'^/accounts/',
+    r'^/i18n/',
+    r'^/tz_detect/',
+]
+
+STRONGHOLD_PUBLIC_NAMED_URLS = [
+    'home',
+]
+
+SELECT2_USE_BUNDLED_JQUERY = False
+
 # Your stuff...
 # ------------------------------------------------------------------------------

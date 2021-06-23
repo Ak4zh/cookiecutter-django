@@ -45,3 +45,9 @@ djangorestframework==3.12.4  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.7.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
 git+https://github.com/d-demirci/django-adminlte3@4719a50686e798e4724c97f89d6e00c3581a5321#egg=django-adminlte3
+python-dotenv==0.17.1
+django-stronghold==0.4.0
+django-easy-select2==1.5.7
+shortuuid==1.0.1
+pyre2==0.3.6
+django-lifecycle==0.9.1
