@@ -43,6 +43,8 @@ SPARKPOST_API_KEY=
 DJANGO_AWS_ACCESS_KEY_ID=
 DJANGO_AWS_SECRET_ACCESS_KEY=
 DJANGO_AWS_STORAGE_BUCKET_NAME=
+DJANGO_AWS_S3_REGION_NAME=us-east-1
+
 {% elif cookiecutter.cloud_provider == 'GCP' %}
 # GCP
 # ------------------------------------------------------------------------------
@@ -81,3 +83,5 @@ CAPROVER_NAMESPACE={{ cookiecutter.project_slug }}
 CAPROVER_SSH_KEY=
 CAPROVER_DASHBOARD_URL=
 CAPROVER_DASHBOARD_PASSWORD=
+
+DATABASE_URL=sqlite:///./{{ cookiecutter.project_slug }}.sqlite3
