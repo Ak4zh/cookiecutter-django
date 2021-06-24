@@ -6,6 +6,8 @@ set -o nounset
 
 
 python /app/manage.py collectstatic --noinput
+python /app/manage.py migrate
+
 {% if cookiecutter.use_whitenoise == 'y' and cookiecutter.use_compressor == 'y' %}
 compress_enabled() {
 python << END
