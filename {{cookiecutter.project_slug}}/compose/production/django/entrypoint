@@ -41,5 +41,3 @@ until postgres_ready; do
   sleep 1
 done
 >&2 echo 'PostgreSQL is available'
-
-exec "$@"

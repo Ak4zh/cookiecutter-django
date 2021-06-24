@@ -113,4 +113,4 @@ RUN chown django:django ${APP_HOME}
 USER django
 
 #ENTRYPOINT ["/entrypoint"]
-CMD /start-flower
+CMD /entrypoint && /start-flower
