@@ -1,5 +1,6 @@
 {% raw %}
 {% load adminlte_helpers %}
+{% load account %}
 {% load static %}
 <!-- Left side column. contains the sidebar -->
 <aside class="main-sidebar sidebar-dark-primary  elevation-4">
@@ -20,7 +21,7 @@
           <img src="{% avatar_url size=90 %}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{% firstof request.user.get_full_name request.user.username %}</a>
+          <a href="#" class="d-block">{% user_display request.user %}</a>
         </div>
       </div>
         {% endblock %}

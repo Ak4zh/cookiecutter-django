@@ -96,6 +96,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
+    "{{ cookiecutter.project_slug }}.core.apps.CoreConfig",
     "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]

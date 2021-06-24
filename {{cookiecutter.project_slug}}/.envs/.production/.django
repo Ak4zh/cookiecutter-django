@@ -64,7 +64,8 @@ SENTRY_DSN=
 
 # Redis
 # ------------------------------------------------------------------------------
-REDIS_URL=redis://redis:6379/0
+REDIS_PASSWORD=!!!SET REDIS_PASSWORD!!!
+
 {% if cookiecutter.use_celery == 'y' %}
 # Celery
 # ------------------------------------------------------------------------------

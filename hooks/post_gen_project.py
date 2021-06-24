@@ -229,6 +229,18 @@ def set_postgres_password(file_path, value=None):
     return postgres_password
 
 
+def set_redis_password(file_path, value=None):
+    redis_password = set_flag(
+        file_path,
+        "!!!SET REDIS_PASSWORD!!!",
+        value=value,
+        length=64,
+        using_digits=True,
+        using_ascii_letters=True,
+    )
+    return redis_password
+
+
 def set_celery_flower_user(file_path, value):
     celery_flower_user = set_flag(
         file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value
@@ -266,6 +278,13 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
     set_postgres_password(
         local_postgres_envs_path, value=DEBUG_VALUE if debug else None
+    )
+    set_redis_password(
+        local_django_envs_path, value=DEBUG_VALUE if debug else None
+    )
+
+    set_redis_password(
+        production_django_envs_path, value=DEBUG_VALUE if debug else None
     )
     set_postgres_user(production_postgres_envs_path, value=postgres_user)
     set_postgres_password(
